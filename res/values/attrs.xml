@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VisualState">
+        <attr name="stateName" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="Setter">
+        <attr name="targetId" format="reference"/>
+        <attr name="targetProperty" format="string"/>
+        <attr name="value" format="string"/>
+        <attr name="refValue" format="string"/>
+    </declare-styleable>
+</resources>
