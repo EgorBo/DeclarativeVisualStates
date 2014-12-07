@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="vsm">
-        <item name="android:layout_width">1dp</item>
-        <item name="android:layout_height">1dp</item>
-    </style>
-</resources>
