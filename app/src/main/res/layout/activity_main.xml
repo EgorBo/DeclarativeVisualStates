@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:vs="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical" android:gravity="center_horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:layout_marginTop="20dp">
+
+    <TextView android:id="@+id/status"
+              android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="You entered as guest" android:textSize="16sp"
+              android:layout_marginBottom="5dp"/>
+
+    <ImageView android:id="@+id/photo"
+               android:layout_width="250dp" android:layout_height="250dp"
+               android:layout_gravity="center_horizontal" android:src="@drawable/unknown_avatar"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:text="Vasya Pupkin" android:textSize="20sp" android:textStyle="bold"
+              android:layout_marginBottom="20dp"/>
+
+    <Button android:id="@+id/addToFriendsButton"
+            android:layout_width="250dp" android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:text="Add to friends"/>
+
+    <Button android:id="@+id/banButton" android:visibility="gone"
+            android:layout_width="250dp"  android:layout_height="wrap_content"
+            android:text="Ban"/>
+
+    <ImageButton android:id="@+id/facebookButton" android:visibility="visible"
+                 android:layout_width="250dp" android:layout_height="60dp"
+                 android:background="@null" android:src="@drawable/fb" android:scaleType="fitXY" />
+
+    <com.eb.vsm.VisualStateManager android:id="@+id/visualStateManager" style="@style/vsm">
+
+        <!--GUEST state-->
+        <com.eb.vsm.VisualState style="@style/vsm" vs:stateName="Guest">
+            <com.eb.vsm.SetText style="@style/vsm"
+                                vs:targetId="@id/status"
+                                vs:text="You entered as guest"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/addToFriendsButton"
+                                      vs:visibility="gone"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/banButton"
+                                      vs:visibility="gone"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/facebookButton"
+                                      vs:visibility="visible"/>
+            <com.eb.vsm.SetSrc style="@style/vsm"
+                               vs:targetId="@id/photo"
+                               vs:src="@drawable/unknown_avatar"/>
+        </com.eb.vsm.VisualState>
+
+        <!--MEMBER state-->
+        <com.eb.vsm.VisualState style="@style/vsm" vs:stateName="Member">
+            <com.eb.vsm.SetText style="@style/vsm"
+                                vs:targetId="@id/status"
+                                vs:text="You entered as member"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/addToFriendsButton"
+                                      vs:visibility="visible"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/banButton"
+                                      vs:visibility="gone"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/facebookButton"
+                                      vs:visibility="gone"/>
+            <com.eb.vsm.SetSrc style="@style/vsm"
+                               vs:targetId="@id/photo"
+                               vs:src="@drawable/avatar"/>
+        </com.eb.vsm.VisualState>
+
+        <!--MODERATOR state-->
+        <com.eb.vsm.VisualState style="@style/vsm" vs:stateName="Moderator">
+            <com.eb.vsm.SetText style="@style/vsm"
+                                vs:targetId="@id/status"
+                                vs:text="You entered as moderator"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/addToFriendsButton"
+                                      vs:visibility="visible"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/banButton"
+                                      vs:visibility="visible"/>
+            <com.eb.vsm.SetVisibility style="@style/vsm"
+                                      vs:targetId="@id/facebookButton"
+                                      vs:visibility="gone"/>
+            <com.eb.vsm.SetSrc style="@style/vsm"
+                               vs:targetId="@id/photo"
+                               vs:src="@drawable/avatar"/>
+        </com.eb.vsm.VisualState>
+
+    </com.eb.vsm.VisualStateManager>
+</LinearLayout>
+

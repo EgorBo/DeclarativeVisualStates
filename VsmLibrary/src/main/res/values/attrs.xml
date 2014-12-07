@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VisualState">
+        <attr name="stateName" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="Setter">
+        <attr name="targetId" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="SetText">
+        <attr name="text" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="SetSrc">
+        <attr name="src" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="SetEnabled">
+        <attr name="enabled" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="SetVisibility">
+        <attr name="visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
+    </declare-styleable>
+</resources>
