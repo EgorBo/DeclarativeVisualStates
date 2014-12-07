@@ -15,9 +15,6 @@ public class SetText extends Setter {
     public SetText(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        if (isInEditMode())
-            return;
-        
         text = getAttributes(R.styleable.SetText).getString(R.styleable.SetText_text);
     }
 

@@ -18,9 +18,6 @@ public abstract class Setter extends View {
         this.attrs = attrs;
         this.context = context;
 
-        if (isInEditMode())
-            return; //http://stackoverflow.com/questions/18258719/using-custom-attributes-in-custom-views-while-in-preview-layout O_o
-
         TypedArray a = getAttributes(R.styleable.Setter);
         targetResourceId = a.getResourceId(R.styleable.Setter_targetId, 0);
     }

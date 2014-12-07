@@ -14,9 +14,6 @@ public class SetVisibility extends Setter {
     public SetVisibility(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        if (isInEditMode())
-            return;
-
         value = getAttributes(R.styleable.SetVisibility).getInt(R.styleable.SetVisibility_visibility, 0);
     }
 

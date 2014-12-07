@@ -19,9 +19,6 @@ public class VisualState extends ViewGroup {
     public VisualState(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        if (isInEditMode())
-            return; //http://stackoverflow.com/questions/18258719/using-custom-attributes-in-custom-views-while-in-preview-layout O_o
-
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.VisualState, 0, 0);
         stateName = a.getString(R.styleable.VisualState_stateName);
     }

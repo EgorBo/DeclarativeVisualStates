@@ -18,6 +18,9 @@
     <declare-styleable name="SetEnabled">
         <attr name="enabled" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="SetChecked">
+        <attr name="checked" format="boolean"/>
+    </declare-styleable>
     <declare-styleable name="SetVisibility">
         <attr name="visibility" format="enum">
             <enum name="visible" value="0"/>

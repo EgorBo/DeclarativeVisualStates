@@ -14,8 +14,6 @@ public class SetSrc extends Setter {
 
     public SetSrc(Context context, AttributeSet attrs) {
         super(context, attrs);
-        if (isInEditMode())
-            return;
 
         resourceId = getAttributes(R.styleable.SetSrc).getResourceId(R.styleable.SetSrc_src, 0);
     }

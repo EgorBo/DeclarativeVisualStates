@@ -16,16 +16,13 @@ import java.util.HashMap;
 public class VisualStateManager extends ViewGroup {
 
     private String defaultStateName;
-    private boolean needsSetupDefaultState = true;
+    private boolean needsSetupDefaultState = false;
     private HashMap<String, VisualState> visualStates = new HashMap<String, VisualState>();
     private String currentState;
     private OnStateChangeListener onStateChangeListener;
 
     public VisualStateManager(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        if (isInEditMode())
-            return;
 
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.VisualStateManager, 0, 0);
         defaultStateName = a.getString(R.styleable.VisualStateManager_defaultStateName);

@@ -13,9 +13,6 @@ public class SetEnabled extends Setter {
     public SetEnabled(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        if (isInEditMode())
-            return;
-
         value = getAttributes(R.styleable.SetEnabled).getBoolean(R.styleable.SetEnabled_enabled, false);
     }
 
