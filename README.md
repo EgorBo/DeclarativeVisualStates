@@ -8,6 +8,30 @@ Imagine we have a view of some user's profile and this view may be sligtly diffe
 How will you design it? Three different activities? Extract common UI into fragments? One single layout and control visibility via code? I suggest a solution where you can declare those states in a single layout xml file and just call goToState(i.e. "Moderator") in code (moving shit from code into xml). This approach is similiar to C# VisualStateManager we have in XAML world.
 
 [Code](https://github.com/EgorBo/DeclarativeVisualStates/blob/master/app/src/main/java/com/eb/vsm/app/MainActivity.java) now looks clean!
+'''java
+public class MainActivity extends Activity {
+
+    private VisualStateManager visualStateManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        visualStateManager = (VisualStateManager)findViewById(R.id.visualStateManager);
+
+        //init view with "guest" state.
+        visualStateManager.goToState("Guest");
+
+        //go to "moderator" state on FB button click
+        ((ImageButton)findViewById(R.id.facebookButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                visualStateManager.goToState("Moderator");
+            }
+        });
+    }
+}
+'''
 
 ![Alt text](http://habrastorage.org/files/882/d0a/dc1/882d0adc184f4d45997476d1c22650ca.png)
 
