@@ -1,7 +1,7 @@
 DeclarativeVisualStates
 =======================
 
-Imagine we have a view of some user's profile and this view may be sligtly different depending on current user's role (guest, member or moderator), in other words the view have three similiar states:
+Imagine we have a view of some user's profile and this view may be sligtly different depending on current user's role (guest, member or moderator), in other words the view has three similiar states:
 
 ![Alt text](http://habrastorage.org/files/c1b/99f/e6c/c1b99fe6c83244768637b0323c5b252b.png)
 
