@@ -19,9 +19,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         visualStateManager = (VisualStateManager)findViewById(R.id.visualStateManager);
 
-        //init view with "guest" state.
-        visualStateManager.goToState("Guest");
-
         //go to "moderator" state on FB button click
         ((ImageButton)findViewById(R.id.facebookButton)).setOnClickListener(new View.OnClickListener() {
             @Override

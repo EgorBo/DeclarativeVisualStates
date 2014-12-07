@@ -1,6 +1,8 @@
 package com.eb.vsm;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +15,21 @@ import java.util.HashMap;
  */
 public class VisualStateManager extends ViewGroup {
 
+    private String defaultStateName;
+    private boolean needsSetupDefaultState = true;
     private HashMap<String, VisualState> visualStates = new HashMap<String, VisualState>();
     private String currentState;
     private OnStateChangeListener onStateChangeListener;
 
     public VisualStateManager(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        if (isInEditMode())
+            return;
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.VisualStateManager, 0, 0);
+        defaultStateName = a.getString(R.styleable.VisualStateManager_defaultStateName);
+        needsSetupDefaultState = !TextUtils.isEmpty(defaultStateName);
     }
 
     @Override
@@ -26,12 +37,18 @@ public class VisualStateManager extends ViewGroup {
         super.addView(child, params);
         if (child instanceof VisualState){
             VisualState vs = (VisualState)child;
-            visualStates.put(vs.getStateName(), vs);
+            String stateName = vs.getStateName();
+            visualStates.put(stateName, vs);
         }
     }
 
     @Override
-    protected void onLayout(boolean b, int i, int i2, int i3, int i4) {}
+    protected void onLayout(boolean b, int i, int i2, int i3, int i4) {
+        if (needsSetupDefaultState){
+            needsSetupDefaultState = false;
+            goToState(defaultStateName);
+        }
+    }
 
     public void goToState(String stateName){
         String prevState = currentState;

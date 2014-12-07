@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="VisualStateManager">
+        <attr name="defaultStateName" format="string"/>
+    </declare-styleable>
     <declare-styleable name="VisualState">
         <attr name="stateName" format="string"/>
     </declare-styleable>

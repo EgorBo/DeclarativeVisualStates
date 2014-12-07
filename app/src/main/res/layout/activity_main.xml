@@ -13,7 +13,7 @@
 
     <ImageView android:id="@+id/photo"
                android:layout_width="250dp" android:layout_height="250dp"
-               android:layout_gravity="center_horizontal" android:src="@drawable/unknown_avatar"/>
+               android:layout_gravity="center_horizontal" android:src="@drawable/avatar"/>
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:layout_marginTop="10dp"
@@ -33,7 +33,8 @@
                  android:layout_width="250dp" android:layout_height="60dp"
                  android:background="@null" android:src="@drawable/fb" android:scaleType="fitXY" />
 
-    <com.eb.vsm.VisualStateManager android:id="@+id/visualStateManager" style="@style/vsm">
+    <com.eb.vsm.VisualStateManager android:id="@+id/visualStateManager" style="@style/vsm"
+            vs:defaultStateName="Guest">
 
         <!--GUEST state-->
         <com.eb.vsm.VisualState style="@style/vsm" vs:stateName="Guest">
