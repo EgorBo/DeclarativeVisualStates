@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -15,13 +14,15 @@ import java.util.HashMap;
 public class VisualStateManager extends ViewGroup {
 
     private HashMap<String, VisualState> visualStates = new HashMap<String, VisualState>();
+    private String currentState;
+    private OnStateChangeListener onStateChangeListener;
 
     public VisualStateManager(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
-    public void addView(View child, ViewGroup.LayoutParams params) {
+    public void addView(View child, LayoutParams params) {
         super.addView(child, params);
         if (child instanceof VisualState){
             VisualState vs = (VisualState)child;
@@ -33,10 +34,24 @@ public class VisualStateManager extends ViewGroup {
     protected void onLayout(boolean b, int i, int i2, int i3, int i4) {}
 
     public void goToState(String stateName){
+        String prevState = currentState;
+        currentState = stateName;
         VisualState state = visualStates.get(stateName);
         if (state == null){
             throw new InvalidParameterException("state was not found");
         }
         state.go();
+
+        if (onStateChangeListener != null){
+            onStateChangeListener.onStateChanged(prevState, stateName);
+        }
+    }
+
+    public void setOnStateChangeListener(OnStateChangeListener onStateChangeListener){
+        this.onStateChangeListener = onStateChangeListener;
+    }
+
+    public String getCurrentState(){
+        return currentState;
     }
 }
