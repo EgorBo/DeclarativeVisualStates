@@ -13,4 +13,4 @@ Code now looks clean!
 
 Xml:
 
-![Alt text](http://habrastorage.org/files/34e/a1b/7ec/34ea1b7ecd224db9bbd917349b52d646.png)
+![Alt text](http://habrastorage.org/files/1a3/e9a/ab0/1a3e9aab0f804e03bfe6e8186dd3e7e5.png)
